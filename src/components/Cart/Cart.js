@@ -1,7 +1,11 @@
 import React from "react";
 import "./Cart.css";
 
-const Cart = ({ cartItems }) => {
+const Cart = ({ cartItems, handleAddToCart, handleRemoveProduct }) => {
+  const totalPrice = cartItems.reduce(
+    (price, item) => price + item.quantity * item.price,
+    0
+  );
   return (
     <div className="container">
       <div className="cart-items">
@@ -12,19 +16,68 @@ const Cart = ({ cartItems }) => {
         {cartItems.length === 0 && (
           <div className="empty-cart">No items added to cart</div>
         )}
-        <div className="">
-          {cartItems.map((item) => (
-            <div key={item.id} className="cart-items-list">
-              {/* <img
-                className="cart-items-image"
-                src={item.image}
-                alt={item.name}
-              /> */}
-              <span>{item.name}</span>
-              <p>{item.quantity}</p>
+
+        {cartItems.length > 0 && (
+          <div>
+            <div className="cart-container">
+              <div className="cart-items-list">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col"></th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Price</th>
+                      <th scope="col">Quantity</th>
+                      <th scope="col">Total</th>
+                    </tr>
+                  </thead>
+                  {cartItems.map((item, index) => (
+                    <tbody key={item.id}>
+                      <tr>
+                        <th scope="row">{index + 1}</th>
+                        <td>
+                          {" "}
+                          <img
+                            className="cart-items-image"
+                            src={item.image}
+                            alt={item.name}
+                          />
+                        </td>
+                        <td>{item.name}</td>
+                        <td>{item.price}</td>
+                        <td>
+                          {" "}
+                          <div className="cart-actions">
+                            <button
+                              className="btn btn-danger"
+                              onClick={() => handleRemoveProduct(item)}
+                            >
+                              -
+                            </button>
+                            <span className="noOfItems">{item.quantity}</span>
+                            <button
+                              className="btn btn-info"
+                              onClick={() => handleAddToCart(item)}
+                            >
+                              +
+                            </button>
+                          </div>
+                        </td>
+                        <td>{item.quantity * item.price}</td>
+                      </tr>
+                    </tbody>
+                  ))}
+                </table>
+              </div>
             </div>
-          ))}
-        </div>
+
+            <div className="total-price">
+              <h4>Total Price</h4>
+              Rs. {totalPrice} -/
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

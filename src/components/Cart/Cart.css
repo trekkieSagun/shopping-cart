@@ -1,3 +1,24 @@
 .cart-items-image {
-  width: 300px;
+  height: 100px;
+}
+
+.cart-items-list {
+  margin: 1rem;
+}
+
+table {
+  text-align: center;
+}
+
+.cart-items-list table button {
+  font-weight: 900;
+  margin: 0 0.8rem;
+}
+
+.total-price {
+  font-weight: 600;
+}
+
+.noOfItems {
+  font-weight: 600;
 }
