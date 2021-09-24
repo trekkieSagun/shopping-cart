@@ -40,7 +40,7 @@ const App = () => {
     }
   };
 
-  const hanldeClearCart = () => {
+  const handleClearCart = () => {
     setCartItems([]);
   };
 
@@ -53,7 +53,7 @@ const App = () => {
           cartItems={cartItems}
           handleAddToCart={handleAddToCart}
           handleRemoveProduct={handleRemoveProduct}
-          hanldeClearCart={hanldeClearCart}
+          handleClearCart={handleClearCart}
         />
       </Router>
     </div>

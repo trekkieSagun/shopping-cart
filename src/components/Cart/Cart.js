@@ -5,7 +5,7 @@ const Cart = ({
   cartItems,
   handleAddToCart,
   handleRemoveProduct,
-  hanldeClearCart,
+  handleClearCart,
 }) => {
   const totalPrice = cartItems.reduce(
     (price, item) => price + item.quantity * item.price,
@@ -25,7 +25,7 @@ const Cart = ({
         {cartItems.length > 0 && (
           <div>
             <div className="cart-container">
-              <button className="btn btn-primary" onClick={hanldeClearCart}>
+              <button className="btn btn-primary" onClick={handleClearCart}>
                 Clear Cart
               </button>
               <div className="cart-items-list">
