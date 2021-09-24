@@ -1,7 +1,12 @@
 import React from "react";
 import "./Cart.css";
 
-const Cart = ({ cartItems, handleAddToCart, handleRemoveProduct }) => {
+const Cart = ({
+  cartItems,
+  handleAddToCart,
+  handleRemoveProduct,
+  hanldeClearCart,
+}) => {
   const totalPrice = cartItems.reduce(
     (price, item) => price + item.quantity * item.price,
     0
@@ -20,6 +25,9 @@ const Cart = ({ cartItems, handleAddToCart, handleRemoveProduct }) => {
         {cartItems.length > 0 && (
           <div>
             <div className="cart-container">
+              <button className="btn btn-primary" onClick={hanldeClearCart}>
+                Clear Cart
+              </button>
               <div className="cart-items-list">
                 <table class="table">
                   <thead>

@@ -1,5 +1,5 @@
 .cart-items-image {
-  height: 100px;
+  height: 70px;
 }
 
 .cart-items-list {
@@ -17,6 +17,8 @@ table {
 
 .total-price {
   font-weight: 600;
+  text-align: right;
+  margin-bottom: 15rem;
 }
 
 .noOfItems {
